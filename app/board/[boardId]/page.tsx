@@ -19,6 +19,7 @@ const BoardIdPage = ({
             //     process.env
             //         .NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_API_KEY!
             // }
+            throttle={16}
             authEndpoint={"/api/liveblocks-auth"}
         >
             <Room

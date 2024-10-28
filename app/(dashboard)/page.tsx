@@ -1,4 +1,4 @@
-//[05:49:30] https://www.youtube.com/watch?v=ADJKbuayubE
+//[07:34:30] https://www.youtube.com/watch?v=ADJKbuayubE
 "use client";
 
 import { useOrganization } from "@clerk/nextjs";
@@ -12,9 +12,7 @@ interface DashboardPageProps {
     };
 }
 
-const DashboardPage = ({
-    searchParams
-}: DashboardPageProps) => {
+const DashboardPage = ({ searchParams }: DashboardPageProps) => {
     const { organization } = useOrganization();
 
     return (
@@ -22,10 +20,7 @@ const DashboardPage = ({
             {!organization ? (
                 <EmptyOrg />
             ) : (
-                <BoardList
-                    orgId={organization.id}
-                    query={searchParams}
-                />
+                <BoardList orgId={organization.id} query={searchParams} />
             )}
         </div>
     );

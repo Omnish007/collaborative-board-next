@@ -2,10 +2,7 @@
 
 import { Hint } from "@/components/hint";
 import { cn } from "@/lib/utils";
-import {
-    useOrganization,
-    useOrganizationList
-} from "@clerk/nextjs";
+import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 import Image from "next/image";
 
 interface ItemProps {
@@ -14,29 +11,22 @@ interface ItemProps {
     imageUrl: string;
 }
 
-export const Item = ({
-    id,
-    imageUrl,
-    name
-}: ItemProps) => {
+export const Item = ({ id, imageUrl, name }: ItemProps) => {
     const { organization } = useOrganization();
     const { setActive } = useOrganizationList();
 
     const isActive = organization?.id === id;
 
     const onClick = () => {
-        if (!isActive) return;
-        setActive({ organization: id });
+        if (!isActive) {
+            return;
+        }
+        setActive!({ organization: id });
     };
 
     return (
         <div className="aspect-square relative">
-            <Hint
-                label={name}
-                side="right"
-                align="start"
-                sideOffset={18}
-            >
+            <Hint label={name} side="right" align="start" sideOffset={18}>
                 <Image
                     fill
                     src={imageUrl}
